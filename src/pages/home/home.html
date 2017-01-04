@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Free
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div padding>
+    <ion-segment [(ngModel)]="login" color="secondary">
+      <ion-segment-button value="Login">
+        Login
+      </ion-segment-button>
+      <ion-segment-button value="Singup">
+        Singup
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="login">
+    <ion-list *ngSwitchCase="'Login'">
+      <ion-item>
+        <h2>Login</h2>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        
+        <button ion-button block color="secondary">Login</button>
+
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Singup'">
+      <ion-item>
+        <ion-thumbnail item-left>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+</ion-content>
