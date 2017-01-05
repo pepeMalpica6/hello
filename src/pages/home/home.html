@@ -23,27 +23,40 @@
       <ion-item>
         <h2>Login</h2>
         <ion-label floating>Username</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="username" name="username" id= "username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      <ion-item>  
+        <button ion-button block color="secondary" (click)="sendLoginData()">Login</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Singup'">
+      <ion-item>
+        <h2>Singup</h2>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Password</ion-label>
         <ion-input type="password"></ion-input>
       </ion-item>
       <ion-item>
-        
-        <button ion-button block color="secondary">Login</button>
-
+        <ion-label floating>E-mail</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+      <ion-item>  
+        <button ion-button block color="secondary">Singup</button>
       </ion-item>
     </ion-list>
+  </div>
 
-    <ion-list *ngSwitchCase="'Singup'">
-      <ion-item>
-        <ion-thumbnail item-left>
-          <img src="img/thumbnail-kitten-1.jpg">
-        </ion-thumbnail>
-        <h2>Luna</h2>
-      </ion-item>
-    </ion-list>
+
+  <div>
+    Username: {{ username }}
   </div>
   
 </ion-content>
