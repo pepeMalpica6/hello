@@ -13,14 +13,13 @@ import { LoginService } from '../../providers/login-service'
 export class HomePage {
   login: any;
   public loginConect: any;
-  username: any;
+  username:any; psw: any;
   constructor(public navCtrl: NavController, public loginService: LoginService) {
     this.login = "Login";
-    this.username;
   }
 
   sendLoginData(){
-    this.loginService.sendData(this.username);
+    this.loginService.sendData(this.username, this.psw);
   }
 
 

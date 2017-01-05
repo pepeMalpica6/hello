@@ -23,11 +23,11 @@
       <ion-item>
         <h2>Login</h2>
         <ion-label floating>Username</ion-label>
-        <ion-input type="text" [(ngModel)]="username" name="username" id= "username"></ion-input>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Password</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="psw"></ion-input>
       </ion-item>
       <ion-item>  
         <button ion-button block color="secondary" (click)="sendLoginData()">Login</button>

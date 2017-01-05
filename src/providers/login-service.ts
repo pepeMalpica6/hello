@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http,Headers,RequestOptions } from '@angular/http';
+import { AlertController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 /*
@@ -11,13 +12,33 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginService {
   data: any;
-  constructor(public http: Http) {
+  constructor(public http: Http, public alertCtrl: AlertController) {
     console.log('Hello LoginService Provider');
   }
 
-  sendData(datos){
-    console.log("Enviando datos !!!" + datos);
+    sendData(dato1,dato2){
+    let params = JSON.stringify({ usr:dato1, psw:dato2 });
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers: headers });
+    let url = "http://192.168.1.87:3000/api/users";
+    //let url = "http://subir-imagenes.localhost:3000/api/users";
+    console.log("Enviando datos !!!" + dato1 + " " + dato2);
+
+    this.http.post(url, params,options)
+        .subscribe(data => {
+            let alert = this.alertCtrl.create({
+                title: "Data String",
+                subTitle: data.json().data,
+                buttons: ["close"]
+            });
+            alert.present(alert);
+        }, error => {
+            console.log(JSON.stringify(error.json()));
+        });
+
   }
+
+
 
   setMessage(){
     console.log("Hello --- ");
